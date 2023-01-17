@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   lp_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 09:42:11 by lperroti          #+#    #+#             */
-/*   Updated: 2023/01/07 05:03:39 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/01/10 05:25:12 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include <stdlib.h>
+#include "../liblp_str.h"
 
 static int	lp_ischarset(char c, const char *charsets)
 {

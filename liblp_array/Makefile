@@ -24,6 +24,9 @@ FILES = strtab_to_intarray \
 		array_issort \
 		array_sort \
 		array_swap \
+		array_indexof \
+		array_has \
+		array_foreach \
 
 SRCS_DIR = src
 SRCS = $(addprefix $(SRCS_DIR)/, $(addsuffix .c, $(FILES)))

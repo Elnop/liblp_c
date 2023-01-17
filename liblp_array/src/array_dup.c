@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 02:39:25 by lperroti          #+#    #+#             */
-/*   Updated: 2023/01/08 10:15:03 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/01/10 05:22:12 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,3 @@ t_array	array_dup(t_array array)
 	array_set_size(dup, array_size(array));
 	return (dup);
 }
- 

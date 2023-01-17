@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 01:42:49 by lperroti          #+#    #+#             */
-/*   Updated: 2023/01/07 05:03:39 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/01/10 05:22:53 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,5 @@ ssize_t	array_int_print(t_array array)
 		return (false);
 	if (!lp_putchar_fdpc(']', 1, &count))
 		return (false);
-
 	return (count);
 }

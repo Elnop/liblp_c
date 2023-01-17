@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 08:06:37 by lperroti          #+#    #+#             */
-/*   Updated: 2023/01/08 03:48:56 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/01/11 11:52:43 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ char		**lp_split(char const *s, char c);
 char		*lp_substr(char const *s, unsigned int start, size_t len);
 long long	lp_atol(const char *nptr);
 bool		lp_str_isequal(const char *s1, const char *s2);
+bool		lp_strcat(char **s1, char const *s2);
 
 #endif

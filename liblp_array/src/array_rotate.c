@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 22:44:52 by lperroti          #+#    #+#             */
-/*   Updated: 2023/01/07 05:03:39 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/01/10 05:23:23 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,3 @@ void	array_rrotate(t_array array)
 	lp_memcpy(array, tmp, elemsize);
 	free(tmp);
 }
-

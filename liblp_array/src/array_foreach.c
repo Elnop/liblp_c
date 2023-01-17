@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array_free.c                                       :+:      :+:    :+:   */
+/*   array_foreach.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/04 05:42:03 by lperroti          #+#    #+#             */
-/*   Updated: 2023/01/16 13:13:02 by lperroti         ###   ########.fr       */
+/*   Created: 2023/01/15 09:42:17 by lperroti          #+#    #+#             */
+/*   Updated: 2023/01/15 09:48:11 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../liblp_array.h"
 
-void	array_free(t_array	array)
+void	array_foreach(t_array array, void (f)(void *))
 {
-	if (array)
-		free(array_header(array));
+	size_t	i;
+
+	i = 0;
+	while (i < array_size(array))
+	{
+		f(array + i * array_elemsize(array));
+		i++;
+	}
 }

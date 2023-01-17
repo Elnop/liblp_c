@@ -6,13 +6,13 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 08:13:27 by lperroti          #+#    #+#             */
-/*   Updated: 2023/01/07 05:03:39 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/01/10 05:26:48 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBLP_MEM_H
 # define LIBLP_MEM_H
-# include <stddef.h>
+# include "../liblp.h"
 
 typedef char	t_byte;
 
