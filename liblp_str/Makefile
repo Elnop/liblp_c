@@ -22,7 +22,8 @@ FILES = lp_atoi \
 		lp_strrchr \
 		lp_strtrim \
 		lp_str_isequal \
-		lp_atof
+		lp_atof \
+		lp_strcat
 
 SRCS_DIR = src
 SRCS = $(addprefix $(SRCS_DIR)/, $(addsuffix .c, $(FILES)))
