@@ -6,9 +6,11 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:46:05 by lperroti          #+#    #+#             */
-/*   Updated: 2023/03/21 19:38:50 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/03/21 19:42:04 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../liblp_str.h"
 
 bool	lp_strcat(char **s1, char const *s2)
 {
