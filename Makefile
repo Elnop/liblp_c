@@ -12,6 +12,7 @@ LIBS_NAMES = liblp_char \
 		liblp_str \
 		liblp_array \
 		liblp_dico \
+		get_next_line
 
 LIBS = $(foreach LIB_NAME, $(LIBS_NAMES), $(LIB_NAME)/$(LIB_NAME).a)
 

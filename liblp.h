@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 13:40:00 by lperroti          #+#    #+#             */
-/*   Updated: 2023/01/11 11:52:32 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/03/21 19:11:34 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@
 # include "liblp_print/liblp_print.h"
 # include "liblp_str/liblp_str.h"
 # include "liblp_dico/liblp_dico.h"
+# include "get_next_line/get_next_line.h"
 
 #endif
