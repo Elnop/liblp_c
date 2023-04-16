@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lp_strcat.c                                        :+:      :+:    :+:   */
+/*   lp_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 11:46:05 by lperroti          #+#    #+#             */
-/*   Updated: 2023/04/12 03:29:55 by lperroti         ###   ########.fr       */
+/*   Created: 2023/04/14 01:02:47 by lperroti          #+#    #+#             */
+/*   Updated: 2023/04/14 08:57:22 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../liblp_str.h"
+#include "../liblp_mem.h"
 
-bool	lp_strcat(char **s1, char const *s2)
+void	*lp_realloc(void **ptrptr, size_t size, size_t new_size)
 {
-	char	*str;
-	char	*cp_s1;
-	int		i;
+	void	*new_ptr;
 
-	str = malloc((lp_strlen(*s1) + lp_strlen(s2) + 1) * sizeof(char));
-	if (!str)
-		return (false);
-	i = 0;
-	cp_s1 = *s1;
-	if (!cp_s1)
-		cp_s1 = "";
-	while (*cp_s1)
-	{
-		str[i++] = *cp_s1;
-		cp_s1++;
-	}
-	free(*s1);
-	while (s2 && *s2)
-	{
-		str[i++] = *s2;
-		s2++;
-	}
-	str[i] = 0;
-	*s1 = str;
-	return (true);
+	new_ptr = malloc(new_size);
+	if (new_ptr)
+		return (NULL);
+	lp_memcpy(new_ptr, new_ptr, size);
+	*ptrptr = new_ptr;
+	return (new_ptr);
 }

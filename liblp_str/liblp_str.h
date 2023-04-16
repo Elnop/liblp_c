@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 08:06:37 by lperroti          #+#    #+#             */
-/*   Updated: 2023/01/27 19:06:31 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/04/13 03:06:49 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,10 @@ long long	lp_atol(const char *nptr);
 double		lp_atof(char *nptr);
 bool		lp_str_isequal(const char *s1, const char *s2);
 bool		lp_strcat(char **s1, char const *s2);
+char		*lp_strfusion(char **p_s1, char *s2);
+int			lp_atoi_base(char *str, char *base);
+char		*lp_itoa_base(int nbr, char *base);
+char		*lp_uitoa_base(unsigned int nbr, char *base);
+char		*lp_ultoa_base(unsigned long nbr, char *base);
 
 #endif

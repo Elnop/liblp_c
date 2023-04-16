@@ -1,18 +1,14 @@
-NAME = liblp_print.a
+NAME = liblp_printf.a
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g3
 AR = ar rcs
 
-FILES = lp_putchar_fd \
-		lp_putchar_fdpc \
-		lp_putendl_fd \
-		lp_putendl_fdpc \
-		lp_putnbr_fd \
-		lp_putnbr_fdpc \
-		lp_putstr_fd \
-		lp_putstr_fdpc \
-		lp_putnbr_base
+FILES = lp_printf \
+		parse_flags \
+		add_margin \
+		specifiers_str \
+		specifiers_nbr \
 
 SRCS_DIR = src
 SRCS = $(addprefix $(SRCS_DIR)/, $(addsuffix .c, $(FILES)))

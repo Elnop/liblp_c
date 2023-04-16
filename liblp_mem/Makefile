@@ -12,6 +12,7 @@ FILES = lp_bzero \
 		lp_memmove \
 		lp_memset \
 		lp_memswap \
+		lp_realloc
 
 SRCS_DIR = src
 SRCS = $(addprefix $(SRCS_DIR)/, $(addsuffix .c, $(FILES)))

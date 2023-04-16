@@ -1,18 +1,17 @@
-NAME = liblp_print.a
+NAME = liblp_math.a
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g3
 AR = ar rcs
 
-FILES = lp_putchar_fd \
-		lp_putchar_fdpc \
-		lp_putendl_fd \
-		lp_putendl_fdpc \
-		lp_putnbr_fd \
-		lp_putnbr_fdpc \
-		lp_putstr_fd \
-		lp_putstr_fdpc \
-		lp_putnbr_base
+FILES = lp_abs \
+		lp_fabs \
+		lp_power \
+		lp_int_len \
+		lp_uint_len \
+		lp_int_lenbase \
+		lp_uint_lenbase \
+		lp_ulong_lenbase \
 
 SRCS_DIR = src
 SRCS = $(addprefix $(SRCS_DIR)/, $(addsuffix .c, $(FILES)))
@@ -30,11 +29,11 @@ ${OBJS_DIR}/%.o: ${SRCS_DIR}/%.c
 all: $(NAME)
 
 clean:
-	rm -rf $(OBJS_DIR)
+	rm -rf ${OBJS_DIR}
 
 fclean: clean
 	rm -f $(NAME)
 
 re: clean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re make_dirs

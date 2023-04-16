@@ -1,4 +1,4 @@
-NAME = liblp.a
+NAME = libftprintf.a
 
 CC = cc
 
@@ -12,7 +12,9 @@ LIBS_NAMES = liblp_char \
 		liblp_str \
 		liblp_array \
 		liblp_dico \
-		get_next_line
+		get_next_line \
+		liblp_printf \
+		liblp_math
 
 LIBS = $(foreach LIB_NAME, $(LIBS_NAMES), $(LIB_NAME)/$(LIB_NAME).a)
 
@@ -20,6 +22,8 @@ ${NAME}: ${LIBS}
 	${AR} $@ $^
 
 all: ${NAME}
+
+bonus: all
 
 clean: fclean_libs
 

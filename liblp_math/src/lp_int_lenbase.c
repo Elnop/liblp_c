@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lp_strcat.c                                        :+:      :+:    :+:   */
+/*   lp_int_lenbase.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 11:46:05 by lperroti          #+#    #+#             */
-/*   Updated: 2023/04/12 03:29:55 by lperroti         ###   ########.fr       */
+/*   Created: 2023/04/12 16:18:09 by lperroti          #+#    #+#             */
+/*   Updated: 2023/04/14 10:14:55 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../liblp_str.h"
+#include "../liblp_math.h"
 
-bool	lp_strcat(char **s1, char const *s2)
+size_t	lp_int_lenbase(int n, char *base)
 {
-	char	*str;
-	char	*cp_s1;
-	int		i;
+	size_t	i;
+	size_t	baselen;
 
-	str = malloc((lp_strlen(*s1) + lp_strlen(s2) + 1) * sizeof(char));
-	if (!str)
-		return (false);
-	i = 0;
-	cp_s1 = *s1;
-	if (!cp_s1)
-		cp_s1 = "";
-	while (*cp_s1)
-	{
-		str[i++] = *cp_s1;
-		cp_s1++;
-	}
-	free(*s1);
-	while (s2 && *s2)
-	{
-		str[i++] = *s2;
-		s2++;
-	}
-	str[i] = 0;
-	*s1 = str;
-	return (true);
+	i = 1;
+	baselen = lp_strlen(base);
+	while (lp_abs(n) > lp_abs(lp_power(baselen, i)))
+		i++;
+	return (i + (n < 0));
 }

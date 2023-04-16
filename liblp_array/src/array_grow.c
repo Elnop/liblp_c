@@ -1,42 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lp_strcat.c                                        :+:      :+:    :+:   */
+/*   array_grow.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 11:46:05 by lperroti          #+#    #+#             */
-/*   Updated: 2023/04/12 03:29:55 by lperroti         ###   ########.fr       */
+/*   Created: 2023/04/13 23:56:09 by lperroti          #+#    #+#             */
+/*   Updated: 2023/04/15 14:45:05 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../liblp_str.h"
+#include "../liblp_array.h"
 
-bool	lp_strcat(char **s1, char const *s2)
+t_array	array_grow(t_array *parray, size_t grow)
 {
-	char	*str;
-	char	*cp_s1;
-	int		i;
+	t_array	new_array;
 
-	str = malloc((lp_strlen(*s1) + lp_strlen(s2) + 1) * sizeof(char));
-	if (!str)
-		return (false);
-	i = 0;
-	cp_s1 = *s1;
-	if (!cp_s1)
-		cp_s1 = "";
-	while (*cp_s1)
-	{
-		str[i++] = *cp_s1;
-		cp_s1++;
-	}
-	free(*s1);
-	while (s2 && *s2)
-	{
-		str[i++] = *s2;
-		s2++;
-	}
-	str[i] = 0;
-	*s1 = str;
-	return (true);
+	new_array = array_pushback_tab(
+			(t_array []){
+			array_new(
+				array_capacity(*parray) + grow, array_elemsize(*parray))},
+			*parray,
+			array_size(*parray)
+			);
+	array_free(*parray);
+	*parray = new_array;
+	return (new_array);
 }

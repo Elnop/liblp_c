@@ -1,42 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lp_strcat.c                                        :+:      :+:    :+:   */
+/*   array_pushback.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 11:46:05 by lperroti          #+#    #+#             */
-/*   Updated: 2023/04/12 03:29:55 by lperroti         ###   ########.fr       */
+/*   Created: 2023/04/13 23:47:57 by lperroti          #+#    #+#             */
+/*   Updated: 2023/04/14 13:32:14 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../liblp_str.h"
+#include "../liblp_array.h"
 
-bool	lp_strcat(char **s1, char const *s2)
+t_array	array_pushback(t_array *parray, void *elem)
 {
-	char	*str;
-	char	*cp_s1;
-	int		i;
-
-	str = malloc((lp_strlen(*s1) + lp_strlen(s2) + 1) * sizeof(char));
-	if (!str)
-		return (false);
-	i = 0;
-	cp_s1 = *s1;
-	if (!cp_s1)
-		cp_s1 = "";
-	while (*cp_s1)
-	{
-		str[i++] = *cp_s1;
-		cp_s1++;
-	}
-	free(*s1);
-	while (s2 && *s2)
-	{
-		str[i++] = *s2;
-		s2++;
-	}
-	str[i] = 0;
-	*s1 = str;
-	return (true);
+	if (array_capacity(*parray) < array_size(*parray) + 1)
+		array_grow(parray, 1);
+	lp_memcpy((char *)*parray + array_size(*parray), elem,
+		array_elemsize(*parray));
+	array_set_size(*parray, array_size(*parray) + 1);
+	return (*parray);
 }
