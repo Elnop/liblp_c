@@ -6,13 +6,13 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:46:19 by lperroti          #+#    #+#             */
-/*   Updated: 2023/04/15 14:45:05 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/04/17 19:34:52 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../liblp_printf.h"
 
-bool	specifier_ptr(void *ptr, t_array *pbuff, t_printf_flags flags)
+static bool	specifier_ptr(void *ptr, t_array *pbuff, t_printf_flags flags)
 {
 	flags.hashtag = true;
 	if (!ptr)
@@ -21,7 +21,7 @@ bool	specifier_ptr(void *ptr, t_array *pbuff, t_printf_flags flags)
 			BASE16_MIN, flags));
 }
 
-static int	arg_to_buff(const char **pstr, t_array *pbuff, va_list args)
+static bool	arg_to_buff(const char **pstr, t_array *pbuff, va_list args)
 {
 	t_printf_flags	flags;
 
@@ -47,18 +47,13 @@ static int	arg_to_buff(const char **pstr, t_array *pbuff, va_list args)
 				BASE16_MAJ, flags));
 	if (**pstr == 'p')
 		return (specifier_ptr(va_arg(args, void *), pbuff, flags));
-	return (-1);
+	return (false);
 }
 
-int	ft_printf(const char *str, ...)
+static bool	str_to_buff(t_array *pbuffer, const char *str, va_list args)
 {
-	va_list	args;
 	size_t	i;
-	t_array	buffer;
-	size_t	write_size;
 
-	buffer = array_new(1, sizeof(char));
-	va_start(args, str);
 	while (*str)
 	{
 		i = 0;
@@ -66,19 +61,31 @@ int	ft_printf(const char *str, ...)
 			i++;
 		if (i)
 		{
-			if (!array_pushback_tab(&buffer, (void *)str, i))
+			if (!array_pushback_tab(pbuffer, (void *)str, i))
 				return (-1);
 			str += i;
 		}
 		if (*str == '%')
 		{
 			str++;
-			arg_to_buff(&str, &buffer, args);
-			if (!buffer)
+			arg_to_buff(&str, pbuffer, args);
+			if (!pbuffer)
 				return (-1);
 			str++;
 		}
 	}
+	return (false);
+}
+
+int	ft_printf(const char *str, ...)
+{
+	va_list	args;
+	t_array	buffer;
+	size_t	write_size;
+
+	buffer = array_new(1, sizeof(char));
+	va_start(args, str);
+	str_to_buff(&buffer, str, args);
 	write(1, buffer, array_size(buffer));
 	va_end(args);
 	write_size = array_size(buffer);

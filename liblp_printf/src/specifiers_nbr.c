@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:52:02 by lperroti          #+#    #+#             */
-/*   Updated: 2023/04/16 20:27:43 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/04/17 19:26:45 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,7 @@ bool	specifier_uint_base(unsigned int number, t_array *pbuff, char *base,
 	if (number || (!number && flags.precision != -2 && flags.precision))
 		nbr_str = (free(nbr_str), lp_uitoa_base(number, base));
 	f_buff = array_new(1, sizeof(char));
-	put_sign(&f_buff,
-		(number > 0)-(number < 0),
-		lp_str_isequal(base, BASE16_MAJ),
-		flags);
+	put_sign(&f_buff, (number > 0), lp_str_isequal(base, BASE16_MAJ), flags);
 	precision = flags.precision;
 	while (precision-- > (ssize_t)lp_strlen(nbr_str))
 		array_pushback(&f_buff, "0");
@@ -95,20 +92,14 @@ bool	specifier_uint_base(unsigned int number, t_array *pbuff, char *base,
 bool	specifier_int(int number, t_array *pbuff, t_printf_flags flags)
 {
 	t_array	field_buff;
-	size_t	margin_len;
 	char	*nbr_str;
 	long	precision;
 
 	nbr_str = lp_strdup("");
 	if (number || (!number && (flags.precision != -2 && flags.precision)))
-		nbr_str = (free(nbr_str), lp_itoa(number));
-	if (nbr_str[0] == '-')
-		lp_strlcpy(nbr_str, nbr_str + 1, lp_strlen(nbr_str));
+		nbr_str = (free(nbr_str), lp_uitoa_base(lp_abs(number), BASE10));
 	field_buff = array_new(1, sizeof(char));
-	put_sign(&field_buff,
-		(number > 0)-(number < 0),
-		true,
-		flags);
+	put_sign(&field_buff, (number > 0) - (number < 0), true, flags);
 	precision = flags.precision;
 	while (precision-- > (ssize_t)lp_strlen(nbr_str))
 		array_pushback(&field_buff, "0");
@@ -117,15 +108,9 @@ bool	specifier_int(int number, t_array *pbuff, t_printf_flags flags)
 		&& (flags.precision < (ssize_t)array_size(field_buff))
 		&& flags.precision != -2)
 	{
-		margin_len = 0;
 		if (flags.field_width > (ssize_t)lp_strlen(nbr_str))
-			margin_len = flags.field_width - lp_strlen(nbr_str);
-		if (flags.precision > (ssize_t)lp_strlen(nbr_str))
-			margin_len = flags.precision - lp_strlen(nbr_str);
-		add_margin(&field_buff, '0', margin_len, true);
-		array_pushback_tab(&field_buff, nbr_str, lp_strlen(nbr_str));
-		array_pushback_tab(pbuff, field_buff, array_size(field_buff));
-		return (array_free(field_buff), free(nbr_str), false);
+			add_margin(&field_buff, '0',
+				flags.field_width - lp_strlen(nbr_str), true);
 	}
 	array_pushback_tab(&field_buff, nbr_str, lp_strlen(nbr_str));
 	add_margin(&field_buff, ' ', flags.field_width, flags.minus);
