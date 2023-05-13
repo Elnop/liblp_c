@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:46:19 by lperroti          #+#    #+#             */
-/*   Updated: 2023/04/17 19:34:52 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/05/13 04:27:04 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static bool	str_to_buff(t_array *pbuffer, const char *str, va_list args)
 	return (false);
 }
 
-int	ft_printf(const char *str, ...)
+int	lp_printf(const char *str, ...)
 {
 	va_list	args;
 	t_array	buffer;
