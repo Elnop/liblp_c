@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:07:43 by lperroti          #+#    #+#             */
-/*   Updated: 2023/02/27 00:28:56 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/06/16 13:40:27 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,21 +63,3 @@ char	*get_next_line(int fd)
 	}
 	return (update_fds_list(fds_list[fd]), line);
 }
-
-// #include <stdio.h>
-// #include <fcntl.h>
-
-// int main(void)
-// {
-// 	int		fd;
-// 	char	*line;
-
-// 	fd = open("get_next_line.h", O_RDONLY);
-// 	line = get_next_line(fd);
-// 	while (line)
-// 	{
-// 		free(line);
-// 		printf("%s", line);
-// 		line = get_next_line(fd);
-// 	}
-// }

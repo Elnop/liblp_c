@@ -12,6 +12,8 @@ FILES = lp_abs \
 		lp_int_lenbase \
 		lp_uint_lenbase \
 		lp_ulong_lenbase \
+		lp_get_timestamp \
+		lp_wait \
 
 SRCS_DIR = src
 SRCS = $(addprefix $(SRCS_DIR)/, $(addsuffix .c, $(FILES)))

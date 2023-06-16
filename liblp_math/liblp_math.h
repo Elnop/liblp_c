@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:04:24 by lperroti          #+#    #+#             */
-/*   Updated: 2023/04/15 14:06:13 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/06/16 09:53:25 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,7 @@ size_t			lp_int_lenbase(int n, char *base);
 size_t			lp_uint_lenbase(unsigned int n, char *base);
 size_t			lp_ulong_lenbase(unsigned long n, char *base);
 float			lp_fabs(float number);
+long long		lp_get_timestamp(void);
+void			lp_wait(long long ms);
 
 #endif
