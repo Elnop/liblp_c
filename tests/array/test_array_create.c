@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_array_grow.c                                  :+:      :+:    :+:   */
+/*   test_array_create.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/26 12:33:02 by lperroti          #+#    #+#             */
-/*   Updated: 2023/08/26 12:48:52 by lperroti         ###   ########.fr       */
+/*   Created: 2023/08/26 12:48:24 by lperroti          #+#    #+#             */
+/*   Updated: 2023/08/26 12:49:07 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/__test_array.h"
 
-bool	test_array_grow()
+bool	test_array_create()
 {
 	const size_t	test_capacity = 111;
-	const size_t	test_grow = 111;
 	const size_t	test_elemsize = sizeof(char);
 	t_array			array;
 
@@ -27,25 +26,18 @@ bool	test_array_grow()
 		printf(RED"array_new KO"RESET"\n");
 		return (false);
 	}
-	if (array_grow(&array, test_grow))
-		printf(GREEN"return array_grow OK"RESET"\n");
+	if (array_capacity(array) == test_capacity)
+		printf(GREEN"array_capacity OK"RESET"\n");
 	else
 	{
-		printf(RED"return array_grow KO"RESET"\n");
+		printf(RED"array_capacity KO"RESET"\n");
 		return (false);
 	}
-	if (array)
-		printf(GREEN"array after grow OK"RESET"\n");
+	if (array_elemsize(array) == test_elemsize)
+		printf(GREEN"array_elemsize OK"RESET"\n");
 	else
 	{
-		printf(RED"array after grow KO"RESET"\n");
-		return (false);
-	}
-	if (array_capacity(array) == test_capacity + test_grow)
-		printf(GREEN"array capacity after grow OK"RESET"\n");
-	else
-	{
-		printf(RED"array capacity after grow KO"RESET"\n");
+		printf(RED"array_elemsize KO"RESET"\n");
 		return (false);
 	}
 	array_destroy(array);

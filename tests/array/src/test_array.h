@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   liblp_tests.h                                      :+:      :+:    :+:   */
+/*   __test_array.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/26 12:42:38 by lperroti          #+#    #+#             */
-/*   Updated: 2023/08/26 12:51:52 by lperroti         ###   ########.fr       */
+/*   Created: 2023/08/26 12:40:43 by lperroti          #+#    #+#             */
+/*   Updated: 2023/08/26 12:49:51 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBLP_TESTS
-# define LIBLP_TESTS
+#ifndef __TEST_ARRAY
+# define __TEST_ARRAY
 
-# include "test_array.h"
+# include "liblp_tests.h"
+# include "../../liblp_array/liblp_array.h"
 
-# define GREEN "\033[0;32m"
-# define RED "\033[0;31m"
-# define RESET "\033[0m"
-# define CYAN "\033[0;36m"
+bool	test_array_grow();
+bool	test_array_create();
 
 #endif
