@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 15:58:23 by lperroti          #+#    #+#             */
-/*   Updated: 2023/08/25 22:30:10 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/08/26 16:08:25 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ t_array	array_new(size_t capacity, size_t elem_size,
 	void	(*elem_destructor)(void *))
 {
 	t_array_header	*array_h;
+
 	if (!capacity)
 		return (NULL);
 	array_h = malloc(capacity * elem_size + sizeof(t_array_header));

@@ -16,12 +16,14 @@ t_array	array_pushback_tab(t_array *parray, void *elems, size_t elems_count)
 {
 	size_t			i;
 	const size_t	elem_size = array_elemsize(*parray);
+	const size_t	capacity = array_capacity(*parray);
+	const size_t	size = array_size(*parray);
 
 	if (!parray || !*parray)
 		return (NULL);
-	if (array_capacity(*parray) < array_size(*parray) + elems_count)
+	if (capacity < size + elems_count)
 		if (!array_grow(parray,
-			elems_count - (array_capacity(*parray) - array_size(*parray))))
+				elems_count - (capacity - size)))
 			return (NULL);
 	i = 0;
 	while (i < elems_count)

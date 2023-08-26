@@ -6,11 +6,11 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 12:33:02 by lperroti          #+#    #+#             */
-/*   Updated: 2023/08/26 12:48:52 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/08/26 15:55:46 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/__test_array.h"
+#include "../test_array.h"
 
 bool	test_array_grow()
 {

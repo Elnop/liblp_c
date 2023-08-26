@@ -1,8 +1,5 @@
-NAME = test
-
-CC = cc
-
-CFLAGS = -Wall -Wextra -Werror -g3
+include base.mk
+include array/test_array.mk
 
 FILES = main
 
@@ -10,7 +7,8 @@ SRCS = $(addsuffix .c, $(FILES))
 
 OBJS_DIR = .build
 
-OBJS = $(addprefix $(OBJS_DIR)/, $(addsuffix .o, $(FILES)))
+OBJS = $(addprefix $(OBJS_DIR)/, $(addsuffix .o, $(FILES))) \
+		$(ARRAY_OBJS)
 
 LIBLP_DIR = ..
 
