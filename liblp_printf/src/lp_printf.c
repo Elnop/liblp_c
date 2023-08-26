@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:46:19 by lperroti          #+#    #+#             */
-/*   Updated: 2023/05/13 04:27:04 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/08/26 01:13:22 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,13 @@ int	lp_printf(const char *str, ...)
 	t_array	buffer;
 	size_t	write_size;
 
-	buffer = array_new(1, sizeof(char));
+	buffer = array_new(1, sizeof(char), NULL, NULL);
+	if (!buffer)
+		return (0);
 	va_start(args, str);
 	str_to_buff(&buffer, str, args);
 	write(1, buffer, array_size(buffer));
 	va_end(args);
 	write_size = array_size(buffer);
-	return (array_free(buffer), write_size);
+	return (array_destroy(buffer), write_size);
 }
