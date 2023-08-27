@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lp_realloc.c                                       :+:      :+:    :+:   */
+/*   liblp_tests.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/14 01:02:47 by lperroti          #+#    #+#             */
-/*   Updated: 2023/08/27 15:41:03 by lperroti         ###   ########.fr       */
+/*   Created: 2023/08/26 12:42:38 by lperroti          #+#    #+#             */
+/*   Updated: 2023/08/26 15:30:20 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../liblp_mem.h"
+#ifndef LIBLP_TESTS
+# define LIBLP_TESTS
 
-void	*lp_realloc(void **ptrptr, size_t size, size_t new_size)
-{
-	void	*new_ptr;
+# include "../array/test_array.h"
 
-	new_ptr = malloc(new_size);
-	if (!new_ptr)
-		return (NULL);
-	lp_memcpy(new_ptr, *ptrptr, size);
-	*ptrptr = new_ptr;
-	return (new_ptr);
-}
+# define GREEN "\033[0;32m"
+# define RED "\033[0;31m"
+# define RESET "\033[0m"
+# define CYAN "\033[0;36m"
+
+#endif

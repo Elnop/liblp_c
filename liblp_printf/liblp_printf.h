@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:48:21 by lperroti          #+#    #+#             */
-/*   Updated: 2023/05/13 04:27:33 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/08/27 15:46:52 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBLP_PRINTF_H
 
 # include "../liblp.h"
+# include <stdarg.h>
 
 typedef void	*t_array;
 

@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lp_realloc.c                                       :+:      :+:    :+:   */
+/*   test_array.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/14 01:02:47 by lperroti          #+#    #+#             */
-/*   Updated: 2023/08/27 15:41:03 by lperroti         ###   ########.fr       */
+/*   Created: 2023/08/26 12:40:43 by lperroti          #+#    #+#             */
+/*   Updated: 2023/08/26 16:41:28 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../liblp_mem.h"
+#ifndef TEST_ARRAY_H
+# define TEST_ARRAY_H
 
-void	*lp_realloc(void **ptrptr, size_t size, size_t new_size)
-{
-	void	*new_ptr;
+# include "../includes/liblp_tests.h"
+# include "../../liblp_array/liblp_array.h"
 
-	new_ptr = malloc(new_size);
-	if (!new_ptr)
-		return (NULL);
-	lp_memcpy(new_ptr, *ptrptr, size);
-	*ptrptr = new_ptr;
-	return (new_ptr);
-}
+bool	test_array_grow(void);
+bool	test_array_create(void);
+bool	test_array_pushback_tab(void);
+
+#endif

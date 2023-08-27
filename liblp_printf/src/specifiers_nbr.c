@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:52:02 by lperroti          #+#    #+#             */
-/*   Updated: 2023/04/17 19:26:45 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/08/27 15:58:29 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ bool	specifier_ulong_base(unsigned long number, t_array *pbuff, char *base,
 	nbr_str = lp_ultoa_base(number, base);
 	f_buff = array_new(1, sizeof(char));
 	put_sign(&f_buff,
-		(number != 0) - 2 * (number < 0),
+		(number != 0),
 		lp_str_isequal(base, BASE16_MAJ),
 		flags);
 	while (flags.precision-- > (ssize_t)lp_ulong_lenbase(number, base))

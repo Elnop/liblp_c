@@ -1,4 +1,7 @@
 a.out
-main.c
+.build
+obj
+*.a
+./main.c
 .vscode/
 ft_printf_tester
