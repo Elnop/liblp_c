@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 10:11:54 by lperroti          #+#    #+#             */
-/*   Updated: 2023/08/25 22:39:00 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/04/15 14:29:31 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,7 @@ size_t	lp_uint_len(unsigned int nbr)
 	i = 1;
 	while (i++ && nbr / 10)
 		nbr /= 10;
+	if (nbr < 0)
+		i++;
 	return (i);
 }

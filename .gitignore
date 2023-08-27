@@ -1,4 +1,4 @@
 a.out
-./main.c
+main.c
 .vscode/
 ft_printf_tester

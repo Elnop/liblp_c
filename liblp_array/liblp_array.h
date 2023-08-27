@@ -18,8 +18,6 @@
 typedef void	*t_array;
 
 typedef struct s_array_header {
-	void	(*elem_destructor)(void *);
-	void	*(*elem_copy)(void *);
 	size_t	capacity;
 	size_t	size;
 	size_t	elem_size;
@@ -39,17 +37,14 @@ bool			array_issort(t_array array, bool (*f)(void *a, void *b));
 // ========================================================================== //
 // ------------------------- CREATE ARRAY ----------------------------------- //
 // ========================================================================== //
-t_array			array_new(size_t capacity, size_t elem_size,
-					void	*(*elem_copy)(void *),
-					void	(*elem_destructor)(void *));
+t_array			array_new(size_t size, size_t elem_size);
 t_array			array_dup(t_array array);
-t_array			str_to_array(const char str[]);
+t_array			str_to_array(char *str);
 t_array			strtab_to_intarray(char **str_tab, size_t size);
 // ========================================================================== //
 // ------------------------- EDIT ARRAY ------------------------------------- //
 // ========================================================================== //
 t_array			array_grow(t_array *array, size_t grow);
-void			array_set_size(t_array array, size_t size);
 t_array			array_sort(t_array array, bool (*f)(void *a, void *b));
 void			array_rotate(t_array array);
 void			array_rrotate(t_array array);
@@ -68,6 +63,7 @@ t_array			array_pushfront_tab(t_array *parray, void *elems,
 // ------------------------- REMOVE ELEMENTS -------------------------------- //
 // ========================================================================== //
 void			array_remove(t_array array, size_t index);
+void			array_set_size(t_array array, size_t size);
 // ========================================================================== //
 // ------------------------- GET ELEMENTS ----------------------------------- //
 // ========================================================================== //
@@ -80,6 +76,12 @@ ssize_t			array_int_print(t_array array);
 // ========================================================================== //
 // ------------------------- FREE MEMORY !!! -------------------------------- //
 // ========================================================================== //
-void			array_destroy(t_array	array);
+void			array_free(t_array	array);
+
+// ========================================================================== //
+// ------------------------- SOON ------------------------------------------- //
+// ========================================================================== //
+
+// array_set_capacity, array_nrotate
 
 #endif

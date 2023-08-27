@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 15:53:39 by lperroti          #+#    #+#             */
-/*   Updated: 2023/08/25 22:26:06 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/04/14 11:06:05 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ t_array	strtab_to_intarray(char **char_tab, size_t size)
 
 	if (!check_tab(char_tab, size))
 		return (NULL);
-	num_array = array_new(size, sizeof(int), NULL, NULL);
+	num_array = array_new(size, sizeof(int));
 	if (!num_array)
 		return (NULL);
 	array_set_size((void *)num_array, size);

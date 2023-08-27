@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 01:12:25 by lperroti          #+#    #+#             */
-/*   Updated: 2023/08/26 01:10:11 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/04/16 01:17:55 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ bool	specifier_str(char *str, t_array *pbuff, t_printf_flags flags)
 	}
 	add_margin(&field_buff, ' ', flags.field_width, flags.minus);
 	array_pushback_tab(pbuff, field_buff, array_size(field_buff));
-	return (array_destroy(field_buff), true);
+	return (array_free(field_buff), true);
 }
 
 bool	specifier_chr(char c, t_array *pbuff, t_printf_flags flags)
@@ -38,7 +38,7 @@ bool	specifier_chr(char c, t_array *pbuff, t_printf_flags flags)
 	t_array	field_buff;
 	size_t	field_len;
 
-	field_buff = array_new(2, sizeof(char), NULL, NULL);
+	field_buff = array_new(2, sizeof(char));
 	if (!field_buff)
 		return (false);
 	array_pushback(&field_buff, (char []){c});
@@ -47,5 +47,5 @@ bool	specifier_chr(char c, t_array *pbuff, t_printf_flags flags)
 	if (flags.field_width > 1)
 		field_len = flags.field_width;
 	array_pushback_tab(pbuff, field_buff, field_len);
-	return (array_destroy(field_buff), true);
+	return (array_free(field_buff), true);
 }

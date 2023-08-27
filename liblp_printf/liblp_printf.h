@@ -14,7 +14,6 @@
 # define LIBLP_PRINTF_H
 
 # include "../liblp.h"
-# include <stdarg.h>
 
 typedef void	*t_array;
 

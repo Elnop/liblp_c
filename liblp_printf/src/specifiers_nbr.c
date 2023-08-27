@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:52:02 by lperroti          #+#    #+#             */
-/*   Updated: 2023/08/26 01:10:11 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/04/17 19:26:45 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ bool	specifier_ulong_base(unsigned long number, t_array *pbuff, char *base,
 	char	*nbr_str;
 
 	nbr_str = lp_ultoa_base(number, base);
-	f_buff = array_new(1, sizeof(char), NULL, NULL);
+	f_buff = array_new(1, sizeof(char));
 	put_sign(&f_buff,
-		(number != 0),
+		(number != 0) - 2 * (number < 0),
 		lp_str_isequal(base, BASE16_MAJ),
 		flags);
 	while (flags.precision-- > (ssize_t)lp_ulong_lenbase(number, base))
@@ -51,12 +51,12 @@ bool	specifier_ulong_base(unsigned long number, t_array *pbuff, char *base,
 				flags.field_width - lp_ulong_lenbase(number, base), true);
 		array_pushback_tab(&f_buff, nbr_str, lp_ulong_lenbase(number, base));
 		array_pushback_tab(pbuff, f_buff, array_size(f_buff));
-		return (free(nbr_str), array_destroy(f_buff), false);
+		return (free(nbr_str), array_free(f_buff), false);
 	}
 	array_pushback_tab(&f_buff, nbr_str, lp_ulong_lenbase(number, base));
 	add_margin(&f_buff, ' ', flags.field_width, flags.minus);
 	array_pushback_tab(pbuff, f_buff, array_size(f_buff));
-	return (free(nbr_str), array_destroy(f_buff), true);
+	return (free(nbr_str), array_free(f_buff), true);
 }
 
 bool	specifier_uint_base(unsigned int number, t_array *pbuff, char *base,
@@ -69,7 +69,7 @@ bool	specifier_uint_base(unsigned int number, t_array *pbuff, char *base,
 	nbr_str = lp_strdup("");
 	if (number || (!number && flags.precision != -2 && flags.precision))
 		nbr_str = (free(nbr_str), lp_uitoa_base(number, base));
-	f_buff = array_new(1, sizeof(char), NULL, NULL);
+	f_buff = array_new(1, sizeof(char));
 	put_sign(&f_buff, (number > 0), lp_str_isequal(base, BASE16_MAJ), flags);
 	precision = flags.precision;
 	while (precision-- > (ssize_t)lp_strlen(nbr_str))
@@ -86,7 +86,7 @@ bool	specifier_uint_base(unsigned int number, t_array *pbuff, char *base,
 	array_pushback_tab(&f_buff, nbr_str, lp_strlen(nbr_str));
 	add_margin(&f_buff, ' ', flags.field_width, flags.minus);
 	array_pushback_tab(pbuff, f_buff, array_size(f_buff));
-	return (free(nbr_str), array_destroy(f_buff), true);
+	return (free(nbr_str), array_free(f_buff), true);
 }
 
 bool	specifier_int(int number, t_array *pbuff, t_printf_flags flags)
@@ -98,7 +98,7 @@ bool	specifier_int(int number, t_array *pbuff, t_printf_flags flags)
 	nbr_str = lp_strdup("");
 	if (number || (!number && (flags.precision != -2 && flags.precision)))
 		nbr_str = (free(nbr_str), lp_uitoa_base(lp_abs(number), BASE10));
-	field_buff = array_new(1, sizeof(char), NULL, NULL);
+	field_buff = array_new(1, sizeof(char));
 	put_sign(&field_buff, (number > 0) - (number < 0), true, flags);
 	precision = flags.precision;
 	while (precision-- > (ssize_t)lp_strlen(nbr_str))
@@ -115,5 +115,5 @@ bool	specifier_int(int number, t_array *pbuff, t_printf_flags flags)
 	array_pushback_tab(&field_buff, nbr_str, lp_strlen(nbr_str));
 	add_margin(&field_buff, ' ', flags.field_width, flags.minus);
 	array_pushback_tab(pbuff, field_buff, array_size(field_buff));
-	return (free(nbr_str), array_destroy(field_buff), true);
+	return (free(nbr_str), array_free(field_buff), true);
 }
