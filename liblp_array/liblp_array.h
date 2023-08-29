@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 18:22:16 by lperroti          #+#    #+#             */
-/*   Updated: 2023/08/28 21:35:51 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/08/29 17:48:01 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ typedef struct s_array_header {
 	size_t	capacity;
 	size_t	size;
 	size_t	elem_size;
-	void	(*copy_elem)(void *elem);
-	void	*(*destroy_elem)(void *elem);
+	void	*(*copy_elem)(void *elem);
+	void	(*destroy_elem)(void *elem);
 	t_array	tab[0];
 }	t_array_header;
 
@@ -40,8 +40,8 @@ bool			array_issort(t_array array, bool (*f)(void *a, void *b));
 // ------------------------- CREATE ARRAY ----------------------------------- //
 // ========================================================================== //
 t_array			array_new(size_t size, size_t elem_size,
-					void (*copy_elem)(void *elem),
-					void *(*destroy_elem)(void *elem));
+					void *(*copy_elem)(void *elem),
+					void (*destroy_elem)(void *elem));
 t_array			array_dup(t_array array);
 t_array			str_to_array(char *str);
 t_array			strtab_to_intarray(char **str_tab, size_t size);

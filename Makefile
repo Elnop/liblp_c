@@ -40,6 +40,6 @@ fclean_libs:
 
 test:
 	make -C ./tests re
-	./tests/test
+	valgrind ./tests/test
 
 .PHONY: all clean fclean re

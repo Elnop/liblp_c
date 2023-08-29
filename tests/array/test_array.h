@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 12:40:43 by lperroti          #+#    #+#             */
-/*   Updated: 2023/08/26 16:41:28 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/08/29 17:42:55 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@
 bool	test_array_grow(void);
 bool	test_array_create(void);
 bool	test_array_pushback_tab(void);
+bool	test_array_remove(void);
 
 #endif
