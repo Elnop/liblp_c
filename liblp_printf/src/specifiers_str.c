@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 01:12:25 by lperroti          #+#    #+#             */
-/*   Updated: 2023/04/16 01:17:55 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/08/28 21:45:39 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ bool	specifier_chr(char c, t_array *pbuff, t_printf_flags flags)
 	t_array	field_buff;
 	size_t	field_len;
 
-	field_buff = array_new(2, sizeof(char));
+	field_buff = array_new(2, sizeof(char), NULL, NULL);
 	if (!field_buff)
 		return (false);
 	array_pushback(&field_buff, (char []){c});

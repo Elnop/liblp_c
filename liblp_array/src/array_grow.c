@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 23:56:09 by lperroti          #+#    #+#             */
-/*   Updated: 2023/04/15 14:45:05 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/08/28 21:48:28 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,12 @@ t_array	array_grow(t_array *parray, size_t grow)
 
 	new_array = array_pushback_tab(
 			(t_array []){
-			array_new(
-				array_capacity(*parray) + grow, array_elemsize(*parray))},
+				array_new(
+					array_capacity(*parray) + grow,
+					array_elemsize(*parray),
+					array_header(*parray)->copy_elem,
+					array_header(*parray)->destroy_elem)
+			},
 			*parray,
 			array_size(*parray)
 			);

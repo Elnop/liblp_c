@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:52:02 by lperroti          #+#    #+#             */
-/*   Updated: 2023/08/27 15:58:29 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/08/28 21:45:27 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ bool	specifier_ulong_base(unsigned long number, t_array *pbuff, char *base,
 	char	*nbr_str;
 
 	nbr_str = lp_ultoa_base(number, base);
-	f_buff = array_new(1, sizeof(char));
+	f_buff = array_new(1, sizeof(char), NULL, NULL);
 	put_sign(&f_buff,
 		(number != 0),
 		lp_str_isequal(base, BASE16_MAJ),
@@ -69,7 +69,7 @@ bool	specifier_uint_base(unsigned int number, t_array *pbuff, char *base,
 	nbr_str = lp_strdup("");
 	if (number || (!number && flags.precision != -2 && flags.precision))
 		nbr_str = (free(nbr_str), lp_uitoa_base(number, base));
-	f_buff = array_new(1, sizeof(char));
+	f_buff = array_new(1, sizeof(char), NULL, NULL);
 	put_sign(&f_buff, (number > 0), lp_str_isequal(base, BASE16_MAJ), flags);
 	precision = flags.precision;
 	while (precision-- > (ssize_t)lp_strlen(nbr_str))
@@ -98,7 +98,7 @@ bool	specifier_int(int number, t_array *pbuff, t_printf_flags flags)
 	nbr_str = lp_strdup("");
 	if (number || (!number && (flags.precision != -2 && flags.precision)))
 		nbr_str = (free(nbr_str), lp_uitoa_base(lp_abs(number), BASE10));
-	field_buff = array_new(1, sizeof(char));
+	field_buff = array_new(1, sizeof(char), NULL, NULL);
 	put_sign(&field_buff, (number > 0) - (number < 0), true, flags);
 	precision = flags.precision;
 	while (precision-- > (ssize_t)lp_strlen(nbr_str))

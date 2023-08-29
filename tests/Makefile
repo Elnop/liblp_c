@@ -18,13 +18,13 @@ $(NAME): $(LIBLP) $(OBJS_DIR) $(OBJS)
 	$(CC) $(OBJS) $(LIBLP) -o $(NAME)
 
 $(LIBLP):
-	@make -C ${LIBLP_DIR}
+	make -C ${LIBLP_DIR}
 
 $(OBJS_DIR):
 	@mkdir -p $(OBJS_DIR)
 
 $(OBJS_DIR)/%.o: %.c
-	@$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
 

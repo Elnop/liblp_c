@@ -39,6 +39,7 @@ fclean_libs:
 	$(foreach LIB_NAME, $(LIBS_NAMES), make fclean -C $(LIB_NAME) ;)
 
 test:
-	make re -C ./tests && ./tests/test
+	make -C ./tests re
+	./tests/test
 
 .PHONY: all clean fclean re
