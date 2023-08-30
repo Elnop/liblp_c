@@ -6,15 +6,15 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 15:58:23 by lperroti          #+#    #+#             */
-/*   Updated: 2023/08/29 17:49:44 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/08/30 22:01:42 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../liblp_array.h"
 
 t_array	array_new(size_t capacity, size_t elem_size,
-	void *(*copy_elem)(void *elem),
-	void (*destroy_elem)(void *elem))
+	bool (*copy_elem)(void *pelem, void *dest),
+	void (*destroy_elem)(void *pelem))
 {
 	t_array_header	*array_h;
 
