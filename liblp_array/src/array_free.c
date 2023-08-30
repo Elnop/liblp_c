@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 05:42:03 by lperroti          #+#    #+#             */
-/*   Updated: 2023/01/16 13:13:02 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/08/29 23:50:51 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,19 @@
 
 void	array_free(t_array	array)
 {
-	if (array)
-		free(array_header(array));
+	size_t	i;
+
+	if (!array)
+		return ;
+	if (array_header(array)->destroy_elem)
+	{
+		i = 0;
+		while (i < array_header(array)->size)
+		{
+			array_header(array)
+			->destroy_elem(array + i * array_header(array)->elem_size);
+			i++;
+		}
+	}
+	free(array_header(array));
 }

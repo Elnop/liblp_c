@@ -23,7 +23,8 @@ t_array	array_pushback_tab(t_array *parray, void *elems, size_t elems_count)
 	i = 0;
 	while (i < elems_count)
 	{
-		array_pushback(parray, (char *)elems + i * array_elemsize(*parray));
+		if (!array_pushback(parray, (char *)elems + (i * array_elemsize(*parray))))
+			return (NULL);
 		i++;
 	}
 	return (*parray);

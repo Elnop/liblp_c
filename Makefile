@@ -40,6 +40,6 @@ fclean_libs:
 
 test:
 	make -C ./tests re
-	valgrind ./tests/test
+	valgrind --leak-check=full --track-origins=yes ./tests/test
 
 .PHONY: all clean fclean re
