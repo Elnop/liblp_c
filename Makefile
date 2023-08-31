@@ -39,7 +39,7 @@ fclean_libs:
 	$(foreach LIB_NAME, $(LIBS_NAMES), make fclean -C $(LIB_NAME) ;)
 
 test:
-	make -C ./tests re
+	make -C ./tests
 	valgrind --leak-check=full --track-origins=yes ./tests/test
 
 .PHONY: all clean fclean re

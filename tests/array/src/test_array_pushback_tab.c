@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 16:28:46 by lperroti          #+#    #+#             */
-/*   Updated: 2023/08/29 17:05:20 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/08/31 23:21:18 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ bool	test_array_pushback_tab(void)
 	if (array_pushback_tab(&array, (void *)str, lp_strlen(str) + 1))
 		lp_printf(GREEN"array_pushback_tab return OK" RESET"\n");
 	else
-		return ((void)lp_printf(RED"array_pushback_tab return KO"RESET"\n"), false);
+		return ((void)lp_printf(RED"array_pushback_tab return KO"RESET"\n"),
+			false);
 	if (!lp_strncmp((char *)array, str, lp_strlen(str) + 1))
 		lp_printf(GREEN"cmp array & base tab OK" RESET"\n");
 	else

@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 18:22:16 by lperroti          #+#    #+#             */
-/*   Updated: 2023/08/30 22:01:18 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/08/31 23:13:45 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void			array_reverse(t_array array);
 // ========================================================================== //
 // ------------------------- INSERT ELEMENTS -------------------------------- //
 // ========================================================================== //
-t_array			array_pushfront(t_array	*parray, void	*elem);
+t_array			array_pushfront(t_array	*parray, void *elem);
 t_array			array_pushback(t_array *array, void *elem);
 t_array			array_pushback_tab(t_array *parray, void *elems,
 					size_t elems_count);
@@ -86,6 +86,6 @@ void			array_free(t_array	array);
 // ------------------------- SOON ------------------------------------------- //
 // ========================================================================== //
 
-// array_set_capacity, array_nrotate
+// array_foreach(t_array, bool (*handler)(void *pelem))
 
 #endif

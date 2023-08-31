@@ -6,12 +6,12 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 12:42:38 by lperroti          #+#    #+#             */
-/*   Updated: 2023/08/26 15:30:20 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/08/31 23:20:55 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBLP_TESTS
-# define LIBLP_TESTS
+#ifndef LIBLP_TESTS_H
+# define LIBLP_TESTS_H
 
 # include "../array/test_array.h"
 
