@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 08:06:37 by lperroti          #+#    #+#             */
-/*   Updated: 2023/04/13 03:06:49 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/09/02 07:54:35 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ char		**lp_split(char const *s, char c);
 char		*lp_strdup(const char *s);
 char		*lp_strjoin(char const *s1, char const *s2);
 char		**lp_split(char const *s, char c);
+char		**lp_pool_split(char *str, char *charset);
 char		*lp_substr(char const *s, unsigned int start, size_t len);
 char		*lp_itoa(int n);
 int			lp_atoi(const char *nptr);
