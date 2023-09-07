@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 13:00:42 by lperroti          #+#    #+#             */
-/*   Updated: 2023/08/31 23:35:18 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/09/07 20:50:48 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_array	array_pushfront(t_array	*parray, void	*elem)
 	size = array_size(*parray);
 	elemsize = array_elemsize(*parray);
 	if (array_capacity(*parray) < size + 1)
-		array_grow(*parray, 1);
+		array_grow(parray, 1);
 	if (size)
 		lp_memmove((char *)*parray + elemsize, *parray, size * elemsize);
 	if (array_header(*parray)->copy_elem
