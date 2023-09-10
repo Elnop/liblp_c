@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 09:24:18 by lperroti          #+#    #+#             */
-/*   Updated: 2023/01/11 11:47:42 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/09/10 03:25:46 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ char	*lp_strjoin(char const *s1, char const *s2)
 	if (!str)
 		return (NULL);
 	i = 0;
-	while (*s1)
+	while (s1 && *s1)
 	{
 		str[i++] = *s1;
 		s1++;
 	}
-	while (*s2)
+	while (s2 && *s2)
 	{
 		str[i++] = *s2;
 		s2++;
