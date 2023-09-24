@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 08:06:37 by lperroti          #+#    #+#             */
-/*   Updated: 2023/09/02 07:54:35 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/09/24 23:35:21 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ int			lp_atoi_base(char *str, char *base);
 char		*lp_itoa_base(int nbr, char *base);
 char		*lp_uitoa_base(unsigned int nbr, char *base);
 char		*lp_ultoa_base(unsigned long nbr, char *base);
+void		lp_free_strtab(char **strtab, size_t size);
 
 #endif

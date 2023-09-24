@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 17:07:15 by lperroti          #+#    #+#             */
-/*   Updated: 2023/08/31 22:24:16 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/09/24 23:36:59 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static bool	create(t_array	*array, const char **elems_to_push)
 
 bool	test_array_remove(void)
 {
-	const char	**elems_to_push 
+	const char	**elems_to_push
 		= (const char **)lp_split("P P12 P123 P1234 P12345", ' ');
 	t_array		array;
 

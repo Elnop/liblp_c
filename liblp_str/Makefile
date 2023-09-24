@@ -30,6 +30,7 @@ FILES = lp_atoi \
 		lp_uitoa_base \
 		lp_ultoa_base \
 		lp_pool_split \
+		lp_free_strtab
 
 SRCS_DIR = src
 SRCS = $(addprefix $(SRCS_DIR)/, $(addsuffix .c, $(FILES)))

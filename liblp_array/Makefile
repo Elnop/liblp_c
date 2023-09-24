@@ -31,7 +31,8 @@ FILES = strtab_to_intarray \
 		array_pushback_tab \
 		array_pushback \
 		array_pushfront_tab \
-		str_to_array
+		str_to_array \
+		array_to_strtab
 
 SRCS_DIR = src
 SRCS = $(addprefix $(SRCS_DIR)/, $(addsuffix .c, $(FILES)))

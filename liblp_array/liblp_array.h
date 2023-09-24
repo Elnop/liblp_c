@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 18:22:16 by lperroti          #+#    #+#             */
-/*   Updated: 2023/08/31 23:13:45 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/09/24 23:33:19 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef struct s_array_header {
 	size_t	capacity;
 	size_t	size;
 	size_t	elem_size;
-	bool	(*copy_elem)(void *pelem, void *dest);
+	bool	((*copy_elem)(void *pelem, void *dest));
 	void	(*destroy_elem)(void *pelem);
 	t_array	tab[0];
 }	t_array_header;
@@ -74,6 +74,10 @@ void			array_set_size(t_array array, size_t size);
 void			*array_get(t_array array, size_t index);
 void			array_foreach(t_array array, void (f)(void *));
 // ========================================================================== //
+// -------------------------- TRANSFORM ------------------------------------- //
+// ========================================================================== //
+char			**array_to_strtab(t_array arr);
+// ========================================================================== //
 // ------------------------- PRINT ELEMENTS --------------------------------- //
 // ========================================================================== //
 ssize_t			array_int_print(t_array array);
@@ -86,6 +90,6 @@ void			array_free(t_array	array);
 // ------------------------- SOON ------------------------------------------- //
 // ========================================================================== //
 
-// array_foreach(t_array, bool (*handler)(void *pelem))
+// array_foreach(t_array, void (*handler)(void *pelem))
 
 #endif
