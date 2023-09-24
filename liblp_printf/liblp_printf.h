@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:48:21 by lperroti          #+#    #+#             */
-/*   Updated: 2023/08/27 15:46:52 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/09/24 23:56:40 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_printf_flags {
 	long	precision;
 }	t_printf_flags;
 
+int				lp_dprintf(int fd, const char *str, ...);
 int				lp_printf(const char *str, ...);
 bool			add_margin(t_array *pbuff, char chr,
 					ssize_t field_width, bool is_revers);
