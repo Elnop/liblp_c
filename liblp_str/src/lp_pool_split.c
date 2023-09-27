@@ -6,19 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 07:52:05 by lperroti          #+#    #+#             */
-/*   Updated: 2023/09/02 07:54:43 by lperroti         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/28 02:45:42 by lperroti          #+#    #+#             */
-/*   Updated: 2022/10/04 18:52:27 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/09/27 15:03:32 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +57,7 @@ char	**lp_pool_split(char *str, char *charset)
 	char	**tab;
 	int		tab_index;
 
-	tab = malloc(lp_strlen(str) * sizeof(char *));
+	tab = malloc((lp_strlen(str) + 1) * sizeof(char *));
 	if (!tab)
 		return (NULL);
 	tab_index = 0;
