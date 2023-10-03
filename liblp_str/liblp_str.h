@@ -6,7 +6,7 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 08:06:37 by lperroti          #+#    #+#             */
-/*   Updated: 2023/09/24 23:35:21 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/10/03 19:34:20 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBLP_STR_H
 # include "../liblp.h"
 
+size_t		lp_strtab_size(char **tab);
 char		*lp_strtrim(char const *s1, char const *set);
 char		*lp_strmapi(char const *s, char (*f)(unsigned int, char));
 void		lp_striteri(char *s, void (*f)(unsigned int, char *));
