@@ -33,7 +33,8 @@ FILES = strtab_to_intarray \
 		array_pushfront_tab \
 		str_to_array \
 		array_to_strtab \
-		array_handlers
+		array_handlers \
+		print_str_array
 
 SRCS_DIR = src
 SRCS = $(addprefix $(SRCS_DIR)/, $(addsuffix .c, $(FILES)))
