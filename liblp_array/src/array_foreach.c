@@ -6,13 +6,13 @@
 /*   By: lperroti <lperroti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 09:42:17 by lperroti          #+#    #+#             */
-/*   Updated: 2023/04/14 11:06:01 by lperroti         ###   ########.fr       */
+/*   Updated: 2023/11/30 00:07:48 by lperroti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../liblp_array.h"
 
-void	array_foreach(t_array array, void (f)(void *))
+void	array_foreach(t_array array, void (f)(void *pelem))
 {
 	size_t	i;
 
